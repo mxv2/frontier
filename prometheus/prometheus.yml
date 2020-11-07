@@ -1,10 +1,10 @@
 global:
-  scrape_interval: 15s
-  evaluation_interval: 15s
+  scrape_interval: 2s
+  evaluation_interval: 2s
 
 rule_files:
 
 scrape_configs:
-  - job_name: prometheus
+  - job_name: catalog
     static_configs:
-      - targets: [ 'host.docker.internal:9090' ]
+      - targets: [ 'host.docker.internal:17001' ]
