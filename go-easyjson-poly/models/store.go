@@ -8,23 +8,23 @@ import (
 )
 
 type PetStore struct {
-	pets []Pet
+	petsField []Pet
 
 	Staff []*User
 	Count int
 }
 
 func (p *PetStore) Pets() []Pet {
-	return p.pets
+	return p.petsField
 }
 
 func (p *PetStore) SetPets(pets []Pet) {
-	p.pets = pets
+	p.petsField = pets
 }
 
 func (p *PetStore) String() string {
 	petString := "["
-	for i, pet := range p.pets {
+	for i, pet := range p.petsField {
 		if i > 0 {
 			petString += ", "
 		}
@@ -32,7 +32,7 @@ func (p *PetStore) String() string {
 	}
 	petString += "]"
 
-	return fmt.Sprintf("{pets:%s Staff:%+v Count:%d}", petString, p.Staff, p.Count)
+	return fmt.Sprintf("{petsField:%s Staff:%+v Count:%d}", petString, p.Staff, p.Count)
 }
 
 func (p *PetStore) UnmarshalJSON(raw []byte) error {
