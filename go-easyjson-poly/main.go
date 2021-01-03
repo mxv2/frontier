@@ -7,6 +7,9 @@ import (
 	"io/ioutil"
 	"log"
 
+	"github.com/mailru/easyjson"
+
+	"github.com/mxv2/frontier/go-easyjson-poly/easymodels"
 	"github.com/mxv2/frontier/go-easyjson-poly/models"
 )
 
@@ -17,6 +20,7 @@ func main() {
 	}
 
 	unmarshalJson(raw)
+	unmarshalEasyJson(raw)
 }
 
 func unmarshalJson(raw []byte) {
@@ -28,5 +32,16 @@ func unmarshalJson(raw []byte) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Printf("json: %+v\n", &store)
+	fmt.Printf("    json: %+v\n", &store)
+}
+
+func unmarshalEasyJson(raw []byte) {
+	buf := bytes.NewBuffer(raw)
+
+	var store easymodels.PetStore
+	err := easyjson.UnmarshalFromReader(buf, &store)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("easyjson: %+v\n", &store)
 }
