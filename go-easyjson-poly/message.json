@@ -1,0 +1,27 @@
+{
+  "staff": [
+    {
+      "name": "John",
+      "age": 33
+    },
+    {
+      "name": "Anna",
+      "age": 25
+    }
+  ],
+  "pets": [
+    {
+      "name": "Lucy",
+      "age": 3,
+      "kind": "cat",
+      "fav_food": "fish"
+    },
+    {
+      "name": "Barbos",
+      "age": 10,
+      "kind": "dog",
+      "fav_toy": "ball"
+    }
+  ],
+  "count": 4
+}
