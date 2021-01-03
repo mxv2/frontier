@@ -5,26 +5,26 @@ import (
 )
 
 type Dog struct {
-	nameField string `json:"name"`
-	ageField  int    `json:"age"`
+	NameField string `json:"name"`
+	AgeField  int    `json:"age"`
 
 	FavoriteToy string `json:"fav_toy"`
 }
 
 func (d *Dog) Name() string {
-	return d.nameField
+	return d.NameField
 }
 
 func (d *Dog) SetName(name string) {
-	d.nameField = name
+	d.NameField = name
 }
 
 func (d *Dog) Age() int {
-	return d.ageField
+	return d.AgeField
 }
 
 func (d *Dog) SetAge(age int) {
-	d.ageField = age
+	d.AgeField = age
 }
 
 func (d *Dog) Kind() string {
@@ -32,5 +32,5 @@ func (d *Dog) Kind() string {
 }
 
 func (d *Dog) String() string {
-	return fmt.Sprintf("{nameField:%s ageField:%d FavoriteToy:%s}", d.nameField, d.ageField, d.FavoriteToy)
+	return fmt.Sprintf("{nameField:%s ageField:%d FavoriteToy:%s}", d.NameField, d.AgeField, d.FavoriteToy)
 }

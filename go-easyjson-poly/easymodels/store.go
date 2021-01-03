@@ -5,23 +5,23 @@ import (
 )
 
 type PetStore struct {
-	petsField []Pet
+	PetsField PetSliceAdapter `json:"pets"`
 
 	Staff []*User `json:"staff"`
 	Count int     `json:"count"`
 }
 
 func (p *PetStore) Pets() []Pet {
-	return p.petsField
+	return p.PetsField
 }
 
 func (p *PetStore) SetPets(pets []Pet) {
-	p.petsField = pets
+	p.PetsField = pets
 }
 
 func (p *PetStore) String() string {
 	petString := "["
-	for i, pet := range p.petsField {
+	for i, pet := range p.PetsField {
 		if i > 0 {
 			petString += ", "
 		}

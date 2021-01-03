@@ -95,6 +95,8 @@ func easyjson3bf9eae0DecodeGithubComMxv2FrontierGoEasyjsonPolyEasymodels1(in *jl
 			continue
 		}
 		switch key {
+		case "pets":
+			(out.PetsField).UnmarshalEasyJSON(in)
 		case "staff":
 			if in.IsNull() {
 				in.Skip()
@@ -143,8 +145,13 @@ func easyjson3bf9eae0EncodeGithubComMxv2FrontierGoEasyjsonPolyEasymodels1(out *j
 	first := true
 	_ = first
 	{
-		const prefix string = ",\"staff\":"
+		const prefix string = ",\"pets\":"
 		out.RawString(prefix[1:])
+		(in.PetsField).MarshalEasyJSON(out)
+	}
+	{
+		const prefix string = ",\"staff\":"
+		out.RawString(prefix)
 		if in.Staff == nil && (out.Flags&jwriter.NilSliceAsEmpty) == 0 {
 			out.RawString("null")
 		} else {
@@ -198,6 +205,10 @@ func easyjson3bf9eae0DecodeGithubComMxv2FrontierGoEasyjsonPolyEasymodels2(in *jl
 			continue
 		}
 		switch key {
+		case "name":
+			out.NameField = string(in.String())
+		case "age":
+			out.AgeField = int(in.Int())
 		case "fav_toy":
 			out.FavoriteToy = string(in.String())
 		default:
@@ -215,8 +226,18 @@ func easyjson3bf9eae0EncodeGithubComMxv2FrontierGoEasyjsonPolyEasymodels2(out *j
 	first := true
 	_ = first
 	{
-		const prefix string = ",\"fav_toy\":"
+		const prefix string = ",\"name\":"
 		out.RawString(prefix[1:])
+		out.String(string(in.NameField))
+	}
+	{
+		const prefix string = ",\"age\":"
+		out.RawString(prefix)
+		out.Int(int(in.AgeField))
+	}
+	{
+		const prefix string = ",\"fav_toy\":"
+		out.RawString(prefix)
 		out.String(string(in.FavoriteToy))
 	}
 	out.RawByte('}')
@@ -250,6 +271,10 @@ func easyjson3bf9eae0DecodeGithubComMxv2FrontierGoEasyjsonPolyEasymodels3(in *jl
 			continue
 		}
 		switch key {
+		case "name":
+			out.NameField = string(in.String())
+		case "age":
+			out.AgeField = int(in.Int())
 		case "fav_food":
 			out.FavoriteFood = string(in.String())
 		default:
@@ -267,8 +292,18 @@ func easyjson3bf9eae0EncodeGithubComMxv2FrontierGoEasyjsonPolyEasymodels3(out *j
 	first := true
 	_ = first
 	{
-		const prefix string = ",\"fav_food\":"
+		const prefix string = ",\"name\":"
 		out.RawString(prefix[1:])
+		out.String(string(in.NameField))
+	}
+	{
+		const prefix string = ",\"age\":"
+		out.RawString(prefix)
+		out.Int(int(in.AgeField))
+	}
+	{
+		const prefix string = ",\"fav_food\":"
+		out.RawString(prefix)
 		out.String(string(in.FavoriteFood))
 	}
 	out.RawByte('}')
